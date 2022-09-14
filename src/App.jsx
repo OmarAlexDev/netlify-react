@@ -2,20 +2,22 @@ import React from "react";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
+import cardData from "./data"
 
 export default function App(){
+    const cards = cardData.map(data=>
+            <Card 
+                key={data.id}
+                {...data}
+            />
+        )
     return(
         <>
             <Navbar />
             <Hero />
-            <Card 
-            img="katie-zaferes.png"
-            rating="5.0"
-            reviewCount={6}
-            country="USA"
-            title="Life Lessons with Katie Zaferes"
-            price={136}
-            />
+            <section className="cards-list">
+                {cards}
+            </section>
         </>
     )
 }
